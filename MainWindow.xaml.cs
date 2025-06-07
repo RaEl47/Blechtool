@@ -23,6 +23,26 @@ namespace Blechtool
         public MainWindow()
         {
             InitializeComponent();
+
+            List<SheetProperties> sheetProperties = new List<SheetProperties>();
+            sheetProperties.Add(new SheetProperties(null, "ohne Schliff", 0));
+            sheetProperties.Add(new SheetProperties(null, "1-seitig geschliffen", 0));
+
+            cbo_Box.ItemsSource = sheetProperties;
+        }
+    }
+
+    public class SheetProperties
+    {
+        public string Material {  get; set; }
+        public string Surface { get; set; }
+        public decimal Thickness { get; set; }
+
+        public SheetProperties(string material, string surface, decimal thickness)
+        {
+            Material = material;
+            Surface = surface;
+            Thickness = thickness;
         }
     }
 }

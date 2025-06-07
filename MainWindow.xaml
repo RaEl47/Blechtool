@@ -7,6 +7,22 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <StackPanel>
+            <Label Content="Blechrechner" HorizontalAlignment="Center"/>
+            <Label Content="Werkstoff:"/>
+            <WrapPanel>
+                <RadioButton Content="1.4301" Margin="10"/>
+                <RadioButton Content="1.4404" Margin="10"/>
+            </WrapPanel>            
+            <Label Content="Oberfläche:"/>
+            <ComboBox Name="cbo_Box" Width="200" HorizontalAlignment="Left">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Surface}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </StackPanel>
         
     </Grid>
 </Window>
