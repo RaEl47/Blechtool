@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -40,6 +41,24 @@ namespace Blechtool
             sheetThickness.Add(new ListThickness(3));
 
             cbo_Box_Thickness.ItemsSource = sheetThickness;
+
+            //TextBox Breite Inhaltsbeschränkung
+
+        }
+
+        private void txt_Width_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !IsTextNumeric(e.Text);
+        }
+        private readonly Regex rgx = new Regex("[0-9.]+");
+        private bool IsTextNumeric(string text)
+        {
+            return double.TryParse(text, out _);
+        }
+
+        private void txt_Width_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 
