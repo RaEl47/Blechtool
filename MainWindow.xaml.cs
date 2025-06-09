@@ -35,13 +35,13 @@ namespace Blechtool
             cbo_Box_Surface.ItemsSource = sheetSurfaces;
 
             //ComboBox mit Blechdicken
-            List<ListThickness> sheetThickness = new List<ListThickness>();
-            sheetThickness.Add(new ListThickness(1));
-            sheetThickness.Add(new ListThickness(1.5));
-            sheetThickness.Add(new ListThickness(2));
-            sheetThickness.Add(new ListThickness(3));
+            //List<ListThickness> sheetThickness = new List<ListThickness>();
+            //sheetThickness.Add(new ListThickness(1));
+            //sheetThickness.Add(new ListThickness(1.5));
+            //sheetThickness.Add(new ListThickness(2));
+            //sheetThickness.Add(new ListThickness(3));
 
-            cbo_Box_Thickness.ItemsSource = sheetThickness;
+            //cbo_Box_Thickness.ItemsSource = sheetThickness;
         }
         //TextBox Breite Eingabebeschränkung
         private void txt_Width_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -65,8 +65,9 @@ namespace Blechtool
         {
             double number1 = Convert.ToDouble(txt_Width.Text);
             double number2 = Convert.ToDouble(txt_Length.Text);
-            object number3 = cbo_Box_Thickness.SelectedItem;
-            double result = number1 + number2 + (double)number3;
+            double number3 = Convert.ToDouble(cbo_Box_Thickness.Text);
+            
+            double result = number1 + number2 + number3;
 
             txt_Result.Text = result.ToString();
         }
@@ -83,12 +84,12 @@ namespace Blechtool
             Surface = surface;            
         }
     }
-    public class ListThickness
-    {
-        public double Thickness { get; set; }
-        public ListThickness(double thickness)
-        {
-            Thickness = thickness;
-        }
-    }
+    //public class ListThickness
+    //{
+    //    public double Thickness { get; set; }
+    //    public ListThickness(double thickness)
+    //    {
+    //        Thickness = thickness;
+    //    }
+    //}
 }
