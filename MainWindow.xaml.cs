@@ -24,6 +24,7 @@ namespace Blechtool
         public MainWindow()
         {
             InitializeComponent();
+            
 
             //ComboBox mit Oberflächen
             List<ListSurfaces> sheetSurfaces = new List<ListSurfaces>();
@@ -41,25 +42,27 @@ namespace Blechtool
             sheetThickness.Add(new ListThickness(3));
 
             cbo_Box_Thickness.ItemsSource = sheetThickness;
-
-            //TextBox Breite Inhaltsbeschränkung
-
         }
-
+        //TextBox Breite Eingabebeschränkung
         private void txt_Width_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            e.Handled = !IsTextNumeric(e.Text);
+            e.Handled = !IsTextAllowed(e.Text);
         }
-        private readonly Regex rgx = new Regex("[0-9.]+");
-        private bool IsTextNumeric(string text)
+        //TextBox Länge Eingabebeschränkung
+        private void txt_Length_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            return double.TryParse(text, out _);
+            e.Handled = !IsTextAllowed(e.Text);
         }
 
-        private void txt_Width_SelectionChanged(object sender, RoutedEventArgs e)
+        //Beschränkung Textbox ohne Buchstaben
+        private readonly Regex rgx = new Regex("[0-9,]+");
+        private bool IsTextAllowed(string text)
         {
-
+            return rgx.IsMatch(text);
         }
+
+
+        
     }
 
     public class ListSurfaces
