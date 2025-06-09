@@ -61,6 +61,15 @@ namespace Blechtool
             return rgx.IsMatch(text);
         }
 
+        private void btn_Calculate_Click(object sender, RoutedEventArgs e)
+        {
+            double number1 = Convert.ToDouble(txt_Width.Text);
+            double number2 = Convert.ToDouble(txt_Length.Text);
+            object number3 = cbo_Box_Thickness.SelectedItem;
+            double result = number1 + number2 + (double)number3;
+
+            txt_Result.Text = result.ToString();
+        }
 
         
     }
