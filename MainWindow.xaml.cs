@@ -28,12 +28,12 @@ namespace Blechtool
             
 
             //ComboBox mit Oberflächen
-            List<ListSurfaces> sheetSurfaces = new List<ListSurfaces>();
-            sheetSurfaces.Add(new ListSurfaces("ohne Schliff"));
-            sheetSurfaces.Add(new ListSurfaces("1-seitig geschliffen"));
-            sheetSurfaces.Add(new ListSurfaces("quer geschliffen"));
+            //List<ListSurfaces> sheetSurfaces = new List<ListSurfaces>();
+            //sheetSurfaces.Add(new ListSurfaces("ohne Schliff"));
+            //sheetSurfaces.Add(new ListSurfaces("1-seitig geschliffen"));
+            //sheetSurfaces.Add(new ListSurfaces("quer geschliffen"));
 
-            cbo_Box_Surface.ItemsSource = sheetSurfaces;
+            //cbo_Box_Surface.ItemsSource = sheetSurfaces;
 
             //ComboBox mit Blechdicken
             //List<ListThickness> sheetThickness = new List<ListThickness>();
@@ -107,15 +107,15 @@ namespace Blechtool
         }        
     }
 
-    public class ListSurfaces
-    {        
-        public string Surface { get; set; }        
+    //public class ListSurfaces
+    //{        
+    //    public string Surface { get; set; }        
 
-        public ListSurfaces(string surface)
-        {            
-            Surface = surface;            
-        }
-    }
+    //    public ListSurfaces(string surface)
+    //    {            
+    //        Surface = surface;            
+    //    }
+    //}
     
 
     //public class ListThickness
