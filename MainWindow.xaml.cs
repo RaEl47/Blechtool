@@ -11,6 +11,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Media.Media3D;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
@@ -63,16 +64,47 @@ namespace Blechtool
 
         private void btn_Calculate_Click(object sender, RoutedEventArgs e)
         {
+            //Berechnung Volumen in dm³
             double number1 = Convert.ToDouble(txt_Width.Text);
             double number2 = Convert.ToDouble(txt_Length.Text);
             double number3 = Convert.ToDouble(cbo_Box_Thickness.Text);
-            
-            double result = number1 + number2 + number3;
+            double volume = number1 * number2 * number3 / 1000000;
+            //Masse in kg
+            double weight = volume * 7.9;
 
-            txt_Result.Text = result.ToString();
-        }
-
-        
+            //1.4301 oder 1.4404 mit oder ohne Schliff
+            double materialprice;
+            if (rb_V2A.IsChecked == true)
+            {
+                if (cbo_Box_Surface.Text == "ohne Schliff")
+                {
+                    materialprice = 3.5;
+                    double result = weight * materialprice;
+                    txt_Result.Text = result.ToString();
+                }
+                else if (cbo_Box_Surface.Text == "1-seitig geschliffen")
+                {
+                    materialprice = 4;
+                    double result = weight * materialprice;
+                    txt_Result.Text = result.ToString();
+                }
+            }
+            else if (rb_V4A.IsChecked == true) 
+            {
+                if (cbo_Box_Surface.Text == "ohne Schliff")
+                {
+                    materialprice = 7;
+                    double result = weight * materialprice;
+                    txt_Result.Text = result.ToString();
+                }
+                else if (cbo_Box_Surface.Text == "1-seitig geschliffen")
+                {
+                    materialprice = 7.5;
+                    double result = weight * materialprice;
+                    txt_Result.Text = result.ToString();
+                }
+            }      
+        }        
     }
 
     public class ListSurfaces
@@ -84,6 +116,8 @@ namespace Blechtool
             Surface = surface;            
         }
     }
+    
+
     //public class ListThickness
     //{
     //    public double Thickness { get; set; }

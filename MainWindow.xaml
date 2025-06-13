@@ -11,8 +11,8 @@
             <Label Content="Blechrechner" HorizontalAlignment="Center"/>
             <Label Content="Werkstoff:"/>
             <WrapPanel>
-                <RadioButton Content="1.4301" Margin="10"/>
-                <RadioButton Content="1.4404" Margin="10"/>
+                <RadioButton Name="rb_V2A" Content="1.4301" Margin="10"/>
+                <RadioButton Name="rb_V4A" Content="1.4404" Margin="10"/>
             </WrapPanel>            
             <Label Content="Oberfläche:"/>
             <ComboBox Name="cbo_Box_Surface" Width="200" HorizontalAlignment="Left">
@@ -31,17 +31,17 @@
             </ComboBox>
             <WrapPanel Margin="0,10,0,0">
                 <Label Content="Breite:"/>
-                <TextBox Name="txt_Width" Width="100" HorizontalAlignment="Left" PreviewTextInput="txt_Width_PreviewTextInput"/>                
+                <TextBox Name="txt_Width" Width="100" HorizontalAlignment="Left" PreviewTextInput="txt_Width_PreviewTextInput" Padding="5"/>                
             </WrapPanel>
             <WrapPanel Margin="0,10,0,0">
                 <Label Content="Länge:"/>
-                <TextBox Name="txt_Length" Width="100" HorizontalAlignment="Left" PreviewTextInput="txt_Length_PreviewTextInput"/>
+                <TextBox Name="txt_Length" Width="100" HorizontalAlignment="Left" PreviewTextInput="txt_Length_PreviewTextInput" Padding="5"/>
             </WrapPanel>
-            <Button Name="btn_Calculate" Content="Berechnen" Width="75" HorizontalAlignment="Left" Margin="0,10" Click="btn_Calculate_Click"/>
+            <Button Name="btn_Calculate" Content="Berechnen" Width="75" HorizontalAlignment="Left" Margin="0,50,0,40" Click="btn_Calculate_Click"/>
             <WrapPanel>
-                <Label Content="Kosten:" Margin="0,50"/>
-                <TextBlock Name="txt_Result" Margin="0,50" Width="100" Background="LightGray"/>
-                <Label Content="€" Margin="0,50"/>
+                <Label Content="Kosten:" />
+                <TextBlock Name="txt_Result"  Width="100" Background="LightGray" Padding="5"/>
+                <Label Content="€" />
             </WrapPanel>            
         </StackPanel>        
     </Grid>
